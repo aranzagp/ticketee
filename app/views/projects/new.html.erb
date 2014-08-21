@@ -10,4 +10,18 @@
 	<%= f.label :description %><br />
 	<%= f.text_field :description %>
 	<%= f.submit %>
-<% end %>
+	<% end %>
+
+	<% if @project.errors.any? %>
+	<div id="error_explanation">
+	<h2><%= pluralize(@project.errors.count, "error") %>
+			prohibited this project for being saved:
+		</h2>
+		<u1>
+			<% @project.errors.full_messages.each do |msg| %>
+			<li><%= msg %> </li>
+			<% end %>
+		</u1>
+
+	</div>
+	<% end %>
